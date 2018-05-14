@@ -14,6 +14,11 @@ export const UserStates = {
 	LOGGED_OUT : "LOGGED_OUT"
 }
 
+export const SearchBarVisibility = {
+	VISIBLE : "VISIBLE",
+	HIDDEN : "HIDDEN" 
+}
+
 /*
 * action creators
 */

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { AppRegistry, View, Text, Image, Button} from 'react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Reducer } from "./app/reducer.js"
+import { homeKookdApp } from "./app/reducer.js"
 import App from './App';
 
 
@@ -125,7 +125,7 @@ class Home extends Component {
 }
 
 
-const Store = createStore(Reducer);
+const Store = createStore(homeKookdApp);
 
 class reactTutorialApp extends Component{
 	render(){
