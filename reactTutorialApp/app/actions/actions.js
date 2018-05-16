@@ -38,6 +38,7 @@ export function logout(){
 }
 
 export function fetchKookdEntries(){
+	console.log("fetching entries")
 	return {type : INIT_KOOKDENTRIES};
 }
 

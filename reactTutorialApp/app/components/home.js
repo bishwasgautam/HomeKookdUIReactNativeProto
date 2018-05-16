@@ -12,7 +12,8 @@ class Home extends Component {
     super(props);
   }
 
-  componentDidMount() {
+  //before component has rendered
+  componentWillMount() {
     if(!this.props.kookdEntries || this.props.kookdEntries.length === 0){
         //call action directly
         this.props.actions.fetchKookdEntries();
@@ -21,6 +22,12 @@ class Home extends Component {
      //dispatch action
      // dispatch(this.props.actions.fetchKookdEntries());
     }
+  }
+
+  //after component renders
+  componentDidMount(){
+    //your code here
+    
   }
 
   resetData(){
@@ -33,13 +40,17 @@ class Home extends Component {
   }
 
   renderKookdEntry(i){
+    console.log(this.props)
     if(this.props.kookdEntries)
       return(
         <KookdEntry chef={this.props.kookdEntries[i].chef} mealDetail={this.props.kookdEntries[i].mealDetail}/>
       )
-      else
+      else{
+        console.log("no entries");
         return ;
-    }
+      }
+  }
+    
 
   render(){
     return(
@@ -54,8 +65,8 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps(state, props){
-  return {kookdEntries: state.kookdEntries}
+function mapStateToProps(state){
+  return {kookdEntries: state.homePage.kookdEntries}
 }
 
 function mapDispatchToProps(dispatch){

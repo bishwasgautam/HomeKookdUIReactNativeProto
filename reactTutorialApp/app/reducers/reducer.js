@@ -14,11 +14,13 @@ function homePage(state, action) {
 	if(!state || state === 'undefined') 
 		return initialState;
 
-	switch (action.type) {
+	switch (action["type"]) {
 	    case INIT_KOOKDENTRIES:
+	    	{
+	    	console.log("entries fetched");
 			return {...state, kookdEntries :[{
-				      chef: "Gordon",
-				      mealDetail: "Shepherds Pie"
+					      chef: "Gordon",
+					      mealDetail: "Shepherds Pie"
 				        },{
 				          chef: "Ful Maya",
 				          mealDetail: "Thukpa"
@@ -29,6 +31,8 @@ function homePage(state, action) {
 				          chef: "Balotelli",
 				          mealDetail: "Spaghetti"
 				        }]};
+			}
+	    	
 		case RESET_KOOKDENTRIES : 
 			 return initialState;
 	    case SEARCH_MEALS:
@@ -41,7 +45,7 @@ function homePage(state, action) {
 		return {};
 		case LOGIN: 
 		return {};
-	    default: state; 
+	    default: return state; 
 	}
 }
 
@@ -55,7 +59,7 @@ function mealDetailsPage(state, action) {
 	    return {...state, ...{currentMeal : action.mealDetails}};
 		//dispatcher logic
 		//with ... stuff
-	    default: state; 
+	    default: return state; 
 	}
 }
 
