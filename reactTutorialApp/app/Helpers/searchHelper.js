@@ -20,7 +20,7 @@ class SearchHelper {
 				mealDetails : {
 					Price: "8.99",
 					Loc: "32,23,453,54",
-					ServedDays="157" // 1 = Sunday, 5 = Thu, 7= Sat
+					ServedDays:"157", // 1 = Sunday, 5 = Thu, 7= Sat
 					Review : {Stars: 4.5, TotalReviews : 345}
 				}
 			},
@@ -36,7 +36,7 @@ class SearchHelper {
 				mealDetails : {
 					Price: "9.99",
 					Loc: "36,23,453,54",
-					ServedDays="135" // 1 = Sunday, 5 = Thu, 7= Sat
+					ServedDays:"135", // 1 = Sunday, 5 = Thu, 7= Sat
 					Review : {Stars: 4.5, TotalReviews : 335}
 				}
 			},
@@ -52,7 +52,7 @@ class SearchHelper {
 				mealDetails : {
 					Price: "8.99",
 					Loc: "32,23,453,54",
-					ServedDays="157" // 1 = Sunday, 5 = Thu, 7= Sat
+					ServedDays:"157",// 1 = Sunday, 5 = Thu, 7= Sat
 					Review : {Stars: 4.9, TotalReviews : 501}
 				}
 			  }

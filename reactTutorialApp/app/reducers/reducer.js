@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
-import { SEARCH_MEALS, LOGIN, LOGOUT, ADD_ORDER, FINALIZE_ORDER } from './app/actions/actions'
-import { UserStates, SearchBarVisibility } from './app/actions/actions'
-import { SearchHelper } from './app/Helpers/searchHelper'
+import { SEARCH_MEALS, LOGIN, LOGOUT, ADD_ORDER, FINALIZE_ORDER, UserStates, SearchBarVisibility } from '../actions/actions'
+import { SearchHelper } from '../Helpers/searchHelper'
 
 const initialState = {
   mealsNearMe : [],
@@ -10,9 +9,9 @@ const initialState = {
 };
 
 
-function homePage(state = {}, action) {
+function homePage(state, action) {
 
-	if(state === 'undefined') 
+	if(!state || state === 'undefined') 
 		return initialState;
 
 	switch (action.type) {
@@ -25,16 +24,19 @@ function homePage(state = {}, action) {
 		//with ... stuff
 		return {};
 		case LOGIN: 
-		return {];
+		return {};
 	    default: state; 
 	}
 }
 
-function mealDetailsPage(state = {}, action) {
+function mealDetailsPage(state, action) {
+
+	if(!state || state === 'undefined') 
+		return initialState;
 
 	switch (action.type) {
 	    case SHOW_MEAL_DETAILS:
-	    return {...state, { currentMeal : action.mealDetails}}
+	    return {...state, ...{currentMeal : action.mealDetails}}
 		//dispatcher logic
 		//with ... stuff
 		return {};

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { AppRegistry, View, Text, Image, Button} from 'react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { homeKookdApp } from "./app/reducer.js"
+import homeKookdApp  from "./app/reducers/reducer"
 import App from './App';
 
 
@@ -20,7 +20,7 @@ render(){
   
   return(
     <View id="divKookdChef" className="kookdChef">
-      <Image source={{uri:this.getImageSrc(this.props.id)}}/>
+      <Image source={{uri:'https://previews.123rf.com/images/krisdog/krisdog1108/krisdog110800040/10299785-portrait-of-a-rather-wicked-looking-cartoon-chef.jpg'}}/>
       <Text className="chefName">{this.props.id}</Text>
     </View>
     );
@@ -39,7 +39,7 @@ class MealDetails extends React.Component{
   render(){
       return(
       <View id="divMealDetails" className="mealDetails">
-          <Image source={{uri:this.getImageHref(this.props.id)}}/>
+          <Image source={{uri:'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/2/25/0/bw2b07_french_fries1.jpg.rend.hgtvcom.616.462.suffix/1383933925968.jpeg'}}/>
           <Text className="mealName">{this.props.id}</Text>
       </View>
     );

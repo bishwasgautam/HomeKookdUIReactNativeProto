@@ -28,7 +28,7 @@ export function searchMeals(searchText){
 }
 
 export function login(username, password){
-    return {type: LOGIN, {userName : username, passWord: password}};
+    return {type: LOGIN, userInfo: {userName : username, passWord: password}};
 }
 
 export function logout(){
