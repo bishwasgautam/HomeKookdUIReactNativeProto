@@ -42,8 +42,8 @@ export function fetchKookdEntries(){
 	return {type : INIT_KOOKDENTRIES};
 }
 
-export function resetKookdEntries(){
-	return {type : RESET_KOOKDENTRIES};
+export function resetKookdEntries(toggle){
+	return {type : RESET_KOOKDENTRIES, toggle:toggle};
 }
 
 

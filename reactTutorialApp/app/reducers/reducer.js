@@ -5,20 +5,11 @@ import { SearchHelper } from '../Helpers/searchHelper'
 const initialState = {
   mealsNearMe : [],
   userState : UserStates.LOGGED_OUT,
-  SearchBarVisibility : SearchBarVisibility.VISIBLE
+  SearchBarVisibility : SearchBarVisibility.VISIBLE,
+  toggle: true,
 };
 
-
-function homePage(state, action) {
-
-	if(!state || state === 'undefined') 
-		return initialState;
-
-	switch (action["type"]) {
-	    case INIT_KOOKDENTRIES:
-	    	{
-	    	console.log("entries fetched");
-			return {...state, kookdEntries :[{
+const defaultKookdEntries = [{
 					      chef: "Gordon",
 					      mealDetail: "Shepherds Pie"
 				        },{
@@ -30,11 +21,28 @@ function homePage(state, action) {
 				        },{
 				          chef: "Balotelli",
 				          mealDetail: "Spaghetti"
-				        }]};
+				        }];
+
+function homePage(state, action) {
+
+	if(!state || state === 'undefined') 
+		return initialState;
+
+	switch (action["type"]) {
+	    case INIT_KOOKDENTRIES:
+	    	{
+			return {...state, kookdEntries: defaultKookdEntries};
 			}
 	    	
 		case RESET_KOOKDENTRIES : 
+			if(!state.toggle){
+				console.log("no toggle return init")
 			 return initialState;
+			}else{
+				console.log("reset ..");
+				console.log(state)
+			 return {...state, kookdEntries: defaultKookdEntries, toggle: false};
+			}
 	    case SEARCH_MEALS:
 		//dispatcher logic here
 		//with ... stuff

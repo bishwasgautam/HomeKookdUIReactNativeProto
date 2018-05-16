@@ -10,6 +10,7 @@ class Home extends Component {
 
   constructor(props){
     super(props);
+    this.props.toggle = true
   }
 
   //before component has rendered
@@ -17,23 +18,20 @@ class Home extends Component {
     if(!this.props.kookdEntries || this.props.kookdEntries.length === 0){
         //call action directly
         this.props.actions.fetchKookdEntries();
-
-     //or
-     //dispatch action
-     // dispatch(this.props.actions.fetchKookdEntries());
+       //or
+       //dispatch action
+       //dispatch(this.props.actions.fetchKookdEntries());
     }
   }
 
   //after component renders
   componentDidMount(){
     //your code here
-    
   }
 
   resetData(){
     //call action directly
     this.props.actions.resetKookdEntries();
-
      //or
      //dispatch action
      // dispatch(this.props.actions.resetKookdEntries());
@@ -55,7 +53,7 @@ class Home extends Component {
   render(){
     return(
 	    <View>
-		    <Button onPress={() => this.resetData()} title="Reset Data"></Button>
+		    <Button onPress={() => this.resetData()} title="Toggle Data"></Button>
 		      {this.renderKookdEntry(0)}
 		      {this.renderKookdEntry(1)}
 		      {this.renderKookdEntry(2)}
