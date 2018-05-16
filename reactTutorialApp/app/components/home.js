@@ -2,13 +2,18 @@ import React, {Component} from 'react'
 import {View, Button} from 'react-native'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import {fetchKookdEntries, resetKookdEntries} from '../actions/actions'
 import KookdEntry from './kookdEntry'
-import fetchKookdEntries, resetKookdEntries from '../actions/actions'
+
 
 class Home extends Component {
 
+  constructor(props){
+    super(props);
+  }
+
   componentDidMount() {
-    if(this.props.kookdEntries.length === 0){
+    if(!this.props.kookdEntries || this.props.kookdEntries.length === 0){
         //call action directly
         this.props.actions.fetchKookdEntries();
 
@@ -54,7 +59,7 @@ function mapStateToProps(state, props){
 }
 
 function mapDispatchToProps(dispatch){
-  return {actions: bindActionCreators(fetchKookdEntries, dispatch)}
+  return {actions: bindActionCreators({fetchKookdEntries,resetKookdEntries}, dispatch)}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

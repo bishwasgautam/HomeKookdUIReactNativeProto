@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { SEARCH_MEALS, INIT_KOOKDENTRIES, RESET_KOOKDENTRIES, LOGIN, LOGOUT, ADD_ORDER, FINALIZE_ORDER, UserStates, SearchBarVisibility } from '../actions/actions'
+import { SEARCH_MEALS, INIT_KOOKDENTRIES, RESET_KOOKDENTRIES, LOGIN, LOGOUT, ADD_ORDER, FINALIZE_ORDER, SHOW_MEAL_DETAILS, UserStates, SearchBarVisibility } from '../actions/actions'
 import { SearchHelper } from '../Helpers/searchHelper'
 
 const initialState = {
@@ -16,7 +16,7 @@ function homePage(state, action) {
 
 	switch (action.type) {
 	    case INIT_KOOKDENTRIES:
-			return {...state,...KookdEntries :[{
+			return {...state, kookdEntries :[{
 				      chef: "Gordon",
 				      mealDetail: "Shepherds Pie"
 				        },{
@@ -52,10 +52,9 @@ function mealDetailsPage(state, action) {
 
 	switch (action.type) {
 	    case SHOW_MEAL_DETAILS:
-	    return {...state, ...{currentMeal : action.mealDetails}}
+	    return {...state, ...{currentMeal : action.mealDetails}};
 		//dispatcher logic
 		//with ... stuff
-		return {};
 	    default: state; 
 	}
 }

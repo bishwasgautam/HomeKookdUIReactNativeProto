@@ -9,7 +9,7 @@ export const ADD_ORDER = 'ADD_ORDER'
 export const FINALIZE_ORDER = 'FINALIZE_ORDER'
 export const INIT_KOOKDENTRIES = 'INIT_KOOKDENTRIES'
 export const RESET_KOOKDENTRIES = 'RESET_KOOKDENTRIES' 
-
+export const SHOW_MEAL_DETAILS = 'SHOW_MEAL_DETAILS'
 
 export const UserStates = {
 	LOGGED_IN : "LOGGED_IN",
