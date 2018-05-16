@@ -1,56 +1,40 @@
-import {Component} from 'react';
-import {View, Button} from 'react-native';
+import React, {Component} from 'react'
+import {View, Button} from 'react-native'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import KookdEntry from './kookdEntry'
+import fetchKookdEntries, resetKookdEntries from '../actions/actions'
 
 class Home extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {KookdEntries :[{
-      chef: "Gordon",
-      mealDetail: "Shepherds Pie"
-    },{
-      chef: "Ful Maya",
-      mealDetail: "Thukpa"
-    },{
-      chef: "Harke",
-      mealDetail: "Choila"
-    },{
-      chef: "Balotelli",
-      mealDetail: "Spaghetti"
-    }]};
-  }
+  componentDidMount() {
+    if(this.props.kookdEntries.length === 0){
+        //call action directly
+        this.props.actions.fetchKookdEntries();
 
-  resetData(){
-    if(this.state.KookdEntries){
-       this.setState({KookdEntries:null});
-    }else{
-       this.setState ({KookdEntries :[{
-      chef: "Gordon",
-      mealDetail: "Shepherds Pie"
-    },{
-      chef: "Ful Maya",
-      mealDetail: "Thukpa"
-    },{
-      chef: "Harke",
-      mealDetail: "Choila"
-    },{
-      chef: "Balotelli",
-      mealDetail: "Spaghetti"
-    }]});
-
-
+     //or
+     //dispatch action
+     // dispatch(this.props.actions.fetchKookdEntries());
     }
   }
 
+  resetData(){
+    //call action directly
+    this.props.actions.resetKookdEntries();
+
+     //or
+     //dispatch action
+     // dispatch(this.props.actions.resetKookdEntries());
+  }
+
   renderKookdEntry(i){
-    if(this.state.KookdEntries)
+    if(this.props.kookdEntries)
       return(
-        <KookdEntry chef={this.state.KookdEntries[i].chef} mealDetail={this.state.KookdEntries[i].mealDetail}/>
+        <KookdEntry chef={this.props.kookdEntries[i].chef} mealDetail={this.props.kookdEntries[i].mealDetail}/>
       )
       else
         return ;
-  }
+    }
 
   render(){
     return(
@@ -63,7 +47,14 @@ class Home extends Component {
 	    </View>
     );
   }
-
 }
 
-export default Home
+function mapStateToProps(state, props){
+  return {kookdEntries: state.kookdEntries}
+}
+
+function mapDispatchToProps(dispatch){
+  return {actions: bindActionCreators(fetchKookdEntries, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

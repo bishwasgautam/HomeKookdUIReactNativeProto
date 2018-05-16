@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import {View, Text, Image} from 'react-native';
 import KookdChef from './chef'
 import MealDetails from './mealDetails'

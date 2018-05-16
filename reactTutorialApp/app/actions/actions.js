@@ -7,6 +7,8 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const ADD_ORDER = 'ADD_ORDER'
 export const FINALIZE_ORDER = 'FINALIZE_ORDER'
+export const INIT_KOOKDENTRIES = 'INIT_KOOKDENTRIES'
+export const RESET_KOOKDENTRIES = 'RESET_KOOKDENTRIES' 
 
 
 export const UserStates = {
@@ -33,6 +35,14 @@ export function login(username, password){
 
 export function logout(){
     return {type: LOGOUT};
+}
+
+export function fetchKookdEntries(){
+	return {type : INIT_KOOKDENTRIES};
+}
+
+export function resetKookdEntries(){
+	return {type : RESET_KOOKDENTRIES};
 }
 
 
