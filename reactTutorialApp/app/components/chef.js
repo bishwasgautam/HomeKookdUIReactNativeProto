@@ -3,18 +3,11 @@ import {View, Text, Image} from 'react-native';
 
 class KookdChef extends Component{
 
-getImageSrc(id){
-  if(id)
-    return "https://previews.123rf.com/images/krisdog/krisdog1108/krisdog110800040/10299785-portrait-of-a-rather-wicked-looking-cartoon-chef.jpg";
-
-  return null;
-}
-
 render(){
   
   return(
     <View id="divKookdChef" className="kookdChef">
-      <Image source={{uri:'https://previews.123rf.com/images/krisdog/krisdog1108/krisdog110800040/10299785-portrait-of-a-rather-wicked-looking-cartoon-chef.jpg'}}/>
+      <Image source={require('./images/chef1.jpg')} style={{width: 100, height: 100}}/>
       <Text className="chefName">{this.props.id}</Text>
     </View>
     );

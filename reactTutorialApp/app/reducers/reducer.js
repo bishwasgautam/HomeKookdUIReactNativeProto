@@ -6,7 +6,7 @@ const initialState = {
   mealsNearMe : [],
   userState : UserStates.LOGGED_OUT,
   SearchBarVisibility : SearchBarVisibility.VISIBLE,
-  toggle: true,
+  toggle: false
 };
 
 const defaultKookdEntries = [{
@@ -37,11 +37,11 @@ function homePage(state, action) {
 		case RESET_KOOKDENTRIES : 
 			if(!state.toggle){
 				console.log("no toggle return init")
-			 return initialState;
+			 return {...initialState, kookdEntries: defaultKookdEntries, toggle:true};
 			}else{
 				console.log("reset ..");
-				console.log(state)
-			 return {...state, kookdEntries: defaultKookdEntries, toggle: false};
+				console.log(state);
+			 return {...state, kookdEntries: null, toggle: false};
 			}
 	    case SEARCH_MEALS:
 		//dispatcher logic here
