@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {fetchKookdEntries, resetKookdEntries} from '../actions/actions'
 import KookdEntry from './kookdEntry'
+import '../styles/home.css'
 
 
 class Home extends Component {
@@ -53,6 +54,7 @@ class Home extends Component {
   render(){
     return(
 	    <View>
+        <Text styleName='header'> HEADER </Text>
 		    <Button onPress={() => this.resetData()} title="Toggle Data"></Button>
 		      {this.renderKookdEntry(0)}
 		      {this.renderKookdEntry(1)}
